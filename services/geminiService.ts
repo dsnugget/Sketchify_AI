@@ -31,6 +31,9 @@ export const generateSketchFromImage = async (base64Image: string, style: Sketch
         // We don't need systemInstruction for a simple image transformation usually, 
         // but setting a low temperature can help with fidelity.
         temperature: 0.4,
+        imageConfig: {
+          aspectRatio: '1:1', // Ensures the output is a 1:1 square, typically 1024x1024 pixels
+        }
       }
     });
 

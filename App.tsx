@@ -81,7 +81,7 @@ function App() {
         <img 
           src={originalImage!} 
           alt="Original" 
-          className="w-full h-auto object-cover"
+          className="w-full h-auto object-cover max-h-[60vh]"
         />
         <div className="absolute top-2 right-2">
             <button 
@@ -135,24 +135,32 @@ function App() {
     <div className="w-full max-w-6xl mx-auto animate-fade-in p-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
         {/* Original */}
-        <div className="space-y-4">
+        <div className="space-y-4 flex flex-col items-center">
           <h3 className="text-center font-hand text-2xl text-gray-500">Original</h3>
-          <div className="rounded-xl overflow-hidden shadow-lg border-4 border-white bg-white">
-            <img src={originalImage!} alt="Original" className="w-full h-auto" />
+          <div className="rounded-xl overflow-hidden shadow-lg border-4 border-white bg-gray-50 w-full flex justify-center">
+            <img 
+              src={originalImage!} 
+              alt="Original" 
+              className="w-auto h-auto max-h-[60vh] object-contain" 
+            />
           </div>
         </div>
 
         {/* Sketch Result */}
-        <div className="space-y-4">
+        <div className="space-y-4 flex flex-col items-center">
           <h3 className="text-center font-hand text-2xl text-charcoal font-bold">
             {sketchStyle === 'color' ? 'Color Sketch' : 'Pencil Sketch'}
           </h3>
-          <div className="rounded-xl overflow-hidden shadow-2xl border-4 border-white bg-white relative">
-            <img src={sketchImage!} alt="Sketch" className="w-full h-auto" />
+          <div className="relative rounded-xl overflow-hidden shadow-2xl border-4 border-white bg-gray-50 w-full flex justify-center">
+            <img 
+              src={sketchImage!} 
+              alt="Sketch" 
+              className="w-auto h-auto max-h-[60vh] object-contain" 
+            />
             <a 
               href={sketchImage!} 
               download={`sketchify-${sketchStyle}.png`}
-              className="absolute bottom-4 right-4 bg-white text-charcoal px-4 py-2 rounded-full font-bold shadow-md hover:bg-gray-100 transition-colors flex items-center gap-2 text-sm"
+              className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-charcoal px-4 py-2 rounded-full font-bold shadow-md hover:bg-white transition-colors flex items-center gap-2 text-sm z-10"
             >
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M12 12.75l4.5-4.5m-4.5 4.5L7.5 8.25M12 13.5V3" />
