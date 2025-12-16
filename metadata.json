@@ -1,0 +1,7 @@
+{
+  "name": "Sketchify AI",
+  "description": "Convert your photos into beautiful hand-drawn pencil sketches using Gemini AI.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
